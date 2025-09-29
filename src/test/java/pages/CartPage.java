@@ -34,7 +34,6 @@ public class CartPage {
     private final By expiryMonthField = By.name("expiry_month");
     private final By expiryYearField = By.name("expiry_year");
     private final By payAndConfirmButton = By.xpath("//button[@id='submit']");
-    private final By orderSuccessMessage = By.xpath("//div[contains(text(),'Your order has been placed successfully!')]");
 
     //Action
     public void scrollToSubscribe(){
@@ -100,10 +99,6 @@ public class CartPage {
 
     public void clickPayAndConfirm(){
         driver.findElement(payAndConfirmButton).click();
-    }
-
-    public String getSuccessOrderMessage(){
-        return driver.findElement(orderSuccessMessage).getText();
     }
 
 
