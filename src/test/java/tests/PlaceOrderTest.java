@@ -65,7 +65,6 @@ public class PlaceOrderTest extends BaseTest {
         cartPage.enterExpiryMonth(String.valueOf(faker.number().numberBetween(1,12)));
         cartPage.enterExpiryYear(String.valueOf(faker.number().numberBetween(2026,2100)));
         cartPage.clickPayAndConfirm();
-//        Assert.assertTrue(cartPage.getSuccessOrderMessage().contains("successfully!"));
 
         Assert.assertEquals(homePage.getOrderSuccess(), "ORDER PLACED!");
         homePage.clickDeleteAcc();
