@@ -8,8 +8,8 @@
 <!--            <class name="tests.TestCaseTest"/>-->
 <!--            <class name="tests.ProductTest"/>-->
 <!--            <class name="tests.HomeTest"/>-->
-<!--            <class name="tests.CartTest"/>-->
-            <class name="tests.PlaceOrderTest"/>
+            <class name="tests.CartTest"/>
+<!--            <class name="tests.PlaceOrderTest"/>-->
         </classes>
     </test>
 </suite>
