@@ -3,14 +3,17 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import utils.JavascriptUtility;
+import utils.WaitUtils;
 
 public class CartPage {
 
     WebDriver driver;
+    WaitUtils waitUtils;
 
     //Constructor
     public CartPage(WebDriver driver){
         this.driver = driver;
+        this.waitUtils = new WaitUtils(driver, 5);
     }
 
     //Locator
@@ -22,6 +25,8 @@ public class CartPage {
     private final By cartQuantity = By.className("cart_quantity");
     private final By checkoutButton = By.xpath("//a[normalize-space()='Proceed To Checkout']");
     private final By RegLogCheckoutProcessButton = By.xpath("//u[normalize-space()='Register / Login']");
+    private final By emptyCartMessage = By.xpath("//span[@id='empty_cart']");
+    private final By removeProduct = By.xpath("//a[@class='cart_quantity_delete']");
 
     //Locator Checkout
     private final By commentCartField = By.xpath("//textarea[@name='message']");
@@ -99,6 +104,14 @@ public class CartPage {
 
     public void clickPayAndConfirm(){
         driver.findElement(payAndConfirmButton).click();
+    }
+
+    public String getEmptyCartMessage(){
+        return waitUtils.waitForElementVisible(emptyCartMessage).getText();
+    }
+
+    public void clickRemoveProduct(){
+        driver.findElement(removeProduct).click();
     }
 
 
