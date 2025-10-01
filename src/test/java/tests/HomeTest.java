@@ -18,7 +18,4 @@ public class HomeTest extends BaseTest {
         homePage.clickSubscription();
         Assert.assertTrue(homePage.getSuccessSubscribe().contains("successfully subscribed!"));
     }
-
-
-
 }
