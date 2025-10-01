@@ -8,25 +8,31 @@ public class HomePage {
 
     private WebDriver driver;
 
-
-
     //Locator
+    //Locator validation
     private final By homePageValidation = By.xpath("//section[@id='slider']//div[@class='item active']//div[1]");
-    private final By signupLoginMenu = By.xpath("//a[normalize-space()='Signup / Login']");
     private final By loggedIn = By.xpath("//li[10]//a[1]");
-    private final By deleteAccButton = By.xpath("//a[normalize-space()='Delete Account']");
     private final By verifyDeleteAcc = By.xpath("//b[normalize-space()='Account Deleted!']");
-    private final By continueButton = By.xpath("//a[normalize-space()='Continue']");
-    private final By logoutButton = By.xpath("//a[normalize-space()='Logout']");
+    private final By subscriptionTitle = By.xpath("//h2[normalize-space()='Subscription']");
+    private final By messageSuccessSubscribe = By.xpath("//div[@class='alert-success alert']");
+    private final By messageOrderSuccess = By.xpath("//b[normalize-space()='Order Placed!']");
+
+    //Locator go to menu
+    private final By signupLoginMenu = By.xpath("//a[normalize-space()='Signup / Login']");
     private final By contactUsMenu = By.xpath("//a[normalize-space()='Contact us']");
     private final By testCaseMenu = By.xpath("//a[contains(text(),'Test Cases')]");
     private final By productMenu = By.xpath("//a[@href='/products']");
-    private final By subscriptionTitle = By.xpath("//h2[normalize-space()='Subscription']");
-    private final By emailSubscriptionField = By.xpath("//input[@id='susbscribe_email']");
-    private final By submitSubscriptionButton = By.xpath("//button[@id='subscribe']");
-    private final By messageSuccessSubscribe = By.xpath("//div[@class='alert-success alert']");
     private final By cartMenu = By.xpath("//a[normalize-space()='Cart']//i[@class='fa fa-shopping-cart']");
-    private final By messageOrderSuccess = By.xpath("//b[normalize-space()='Order Placed!']");
+
+    //Locator action button
+    private final By deleteAccButton = By.xpath("//a[normalize-space()='Delete Account']");
+    private final By continueButton = By.xpath("//a[normalize-space()='Continue']");
+    private final By logoutButton = By.xpath("//a[normalize-space()='Logout']");
+    private final By submitSubscriptionButton = By.xpath("//button[@id='subscribe']");
+
+    //Locator action field
+    private final By emailSubscriptionField = By.xpath("//input[@id='susbscribe_email']");
+
 
     //Constructor
     public HomePage(WebDriver driver){
@@ -98,6 +104,4 @@ public class HomePage {
     public String getOrderSuccess(){
         return driver.findElement(messageOrderSuccess).getText();
     }
-
-
 }
