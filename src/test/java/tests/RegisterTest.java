@@ -16,7 +16,7 @@ public class RegisterTest extends BaseTest {
 
     //Register User
     @Test (priority = 1)
-    public void resgiter(){
+    public void register(){
 
         //on homepage
         HomePage homePage = new HomePage(driver);
