@@ -23,6 +23,7 @@ public class ProductTest extends BaseTest {
         ProductPage productPage = new ProductPage(driver);
         Assert.assertEquals(productPage.getProductTitle(), "ALL PRODUCTS");
         productPage.displayAllProduct();
+        productPage.scrollProduct("anyProduct");
         productPage.clickDetailProduct();
 
         //detail product
