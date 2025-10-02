@@ -3,10 +3,12 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import utils.JavascriptUtility;
+import utils.WaitUtils;
 
 public class HomePage {
 
     private WebDriver driver;
+    private WaitUtils waitUtils;
 
     //Locator
     //Locator validation
@@ -37,6 +39,7 @@ public class HomePage {
     //Constructor
     public HomePage(WebDriver driver){
         this.driver = driver;
+        this.waitUtils = new WaitUtils(driver, 4);
     }
 
     //Action
@@ -57,7 +60,7 @@ public class HomePage {
     }
 
     public String verifyDeleteAcc(){
-        return driver.findElement(verifyDeleteAcc).getText();
+        return waitUtils.waitForElementVisible(verifyDeleteAcc).getText();
     }
 
     public void clickContinueButton(){

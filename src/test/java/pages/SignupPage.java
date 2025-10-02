@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
+import utils.WaitUtils;
 
 import java.util.List;
 import java.util.Random;
@@ -10,14 +11,14 @@ import java.util.Random;
 public class SignupPage {
 
     private WebDriver driver;
+    private WaitUtils waitUtils;
 
     //Locators
+    //Locator verification
+    private final By successRegister = By.xpath("//b[normalize-space()='Account Created!']");
+    //Locator action field
     private final By signupPageTitle = By.xpath("//b[normalize-space()='Enter Account Information']");
-    private final By chooseGenderMr = By.xpath("//input[@id='id_gender1']");
     private final By passwordFieldSignup = By.xpath("//input[@id='password']");
-    private final By dropdownDays = By.xpath("//select[@id='days']");
-    private final By dropdownMonths = By.xpath("//select[@id='months']");
-    private final By dropdownYears = By.xpath("//select[@id='years']");
     private final By firstNameField = By.xpath("//input[@id='first_name']");
     private final By lastNameField = By.xpath("//input[@id='last_name']");
     private final By companyField = By.xpath("//input[@id='company']");
@@ -26,14 +27,19 @@ public class SignupPage {
     private final By cityField = By.xpath("//input[@id='city']");
     private final By zipcodeField = By.xpath("//input[@id='zipcode']");
     private final By mobileNumField = By.xpath("//input[@id='mobile_number']");
+    //Locator action click
+    private final By chooseGenderMr = By.xpath("//input[@id='id_gender1']");
+    private final By dropdownDays = By.xpath("//select[@id='days']");
+    private final By dropdownMonths = By.xpath("//select[@id='months']");
+    private final By dropdownYears = By.xpath("//select[@id='years']");
     private final By registerButton = By.xpath("//button[normalize-space()='Create Account']");
-    private final By successRegister = By.xpath("//b[normalize-space()='Account Created!']");
     private final By continueButton = By.xpath("//a[normalize-space()='Continue']");
 
 
     //Constructor
     public SignupPage(WebDriver driver){
         this.driver = driver;
+        this.waitUtils = new WaitUtils(driver, 4);
     }
 
 
@@ -109,7 +115,7 @@ public class SignupPage {
     }
 
     public String successRegister(){
-        return driver.findElement(successRegister).getText();
+        return waitUtils.waitForElementVisible(successRegister).getText();
     }
 
     public void clickContinue(){
