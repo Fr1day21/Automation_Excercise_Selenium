@@ -119,7 +119,7 @@ public class SignupPage {
     }
 
     public void clickContinue(){
-        driver.findElement(continueButton).click();
+        waitUtils.waitForElementClickable(continueButton).click();
     }
 
 

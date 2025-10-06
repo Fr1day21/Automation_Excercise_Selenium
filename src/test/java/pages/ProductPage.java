@@ -127,7 +127,7 @@ public class ProductPage {
                 waitUtils.waitForElementClickable(addCartButton).click();
                 break;
             case "product2" :
-                driver.findElement(addOtherCartButton).click();
+                waitUtils.waitForElementClickable(addOtherCartButton).click();
                 break;
             default:
                 throw new IllegalArgumentException("product invalid");
